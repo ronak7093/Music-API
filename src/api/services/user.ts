@@ -22,9 +22,12 @@ import { templates, MailServices } from "./mail";
 
 @Service()
 export default class UserServices {
+
+  mailerServiceInstance = Container.get(MailServices);
+
   constructor(
     @InjectRepository(User) private readonly repository: Repository<User>
-  ) {}
+  ) { }
 
   public async findOne(
     id?: string | number,
@@ -131,6 +134,9 @@ export default class UserServices {
         forgot_password_link: `${config.webappUrl}reset-password/${token}`,
         AppName: config.appName,
       });
+      this.mailerServiceInstance.send(email, `Reset Your Password ${config.appName}`, template);
+      return;
+
     } catch (error) {
       console.log(error);
       throw error;

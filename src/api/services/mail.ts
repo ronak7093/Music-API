@@ -6,6 +6,9 @@ import fs from "fs";
 import { Utf8 } from "crypto-ts/src/enc/Utf8";
 
 export const mailer = nodemailer.createTransport({
+  host: config.mail.smtp,
+  port: config.mail.port,
+  secure: config.mail.secure,
   Service: "yandex",
   auth: {
     user: config.mail.email,
@@ -24,7 +27,7 @@ export const templates = {
 export class MailServices {
   async send(to: string, subject: string, template: string) {
     return mailer
-      .sendMailer({
+      .sendMail({
         from: `spotify<${config.mail.from}>`,
         to: to,
         subject: subject,
