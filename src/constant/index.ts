@@ -5,6 +5,7 @@ export const CONSTANT = {
   FORGOT_PASSWORD_EMAIL_SENT: "forgot password email sent",
   SUCCESS_RESET_PASSWORD: "Password reset successfully.",
   PASSWORD_RESET: "Password reset successfully.",
+  ADD: 'add album name sucessfully',
 
   /**
    * Error Message
@@ -13,4 +14,5 @@ export const CONSTANT = {
   INVALID_PASSWORD: "invalid password",
   EMAIL_NOT_EXIST: "No user registered with provided email!",
   INVAID_PASSWORD: "invalid password",
+  ADMIN_ADD_ALBUMNAME: 'admin add album name',
 };

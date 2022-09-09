@@ -10,6 +10,11 @@ import {
 import { AlbumsMeta } from "./AlbumsMeta";
 import { User } from "./User";
 
+export class IAlbum {
+  albumsName: string;
+  role: string;
+}
+
 @Entity()
 export class Albums {
   @PrimaryGeneratedColumn()
